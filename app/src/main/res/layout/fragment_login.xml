@@ -27,7 +27,9 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_edit_text"
             android:padding="14dp"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:id="@+id/edt_email"
+            android:inputType="textEmailAddress"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -39,11 +41,14 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="********"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_edit_text"
+            android:hint="********"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:padding="14dp"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:id="@+id/edt_senha"/>
 
         <Button
             android:layout_width="match_parent"
@@ -54,7 +59,10 @@
             android:textAllCaps="false"
             android:background="@drawable/bg_button"
             app:backgroundTint="@null"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:id="@+id/bt_login"/>
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +75,8 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/bt_criarConta"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,11 +85,22 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/bt_recuperar"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:indeterminateTint="@color/white"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:id="@+id/progressBar"/>
 
 
     </LinearLayout>
