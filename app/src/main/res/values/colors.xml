@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="azul_padrao">#03b6fc</color>
+    <color name="vermelho">#ea1d2c</color>
 </resources>

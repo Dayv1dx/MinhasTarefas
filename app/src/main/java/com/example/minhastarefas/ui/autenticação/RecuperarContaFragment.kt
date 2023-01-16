@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.minhastarefas.R
 import com.example.minhastarefas.databinding.FragmentLoginBinding
 import com.example.minhastarefas.databinding.FragmentRecuperarContaBinding
+import com.example.minhastarefas.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -46,7 +47,10 @@ class RecuperarContaFragment : Fragment() {
                     Toast.makeText(requireContext(), "Pronto, uma mensagem foi enviada para o seu e-mail", Toast.LENGTH_SHORT).show()
                 }
                 else {
-
+                    Toast.makeText(
+                        requireContext(),
+                        FirebaseHelper.validarErros(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT).show()
                 }
                 binding.progressBar.isVisible = false
             }

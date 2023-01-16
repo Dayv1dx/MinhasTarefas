@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.minhastarefas.R
 import com.example.minhastarefas.databinding.FragmentLoginBinding
 import com.example.minhastarefas.databinding.FragmentSplashBinding
+import com.example.minhastarefas.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -38,24 +39,29 @@ class LoginFragment : Fragment() {
 
         initClick()
     }
-    private fun LoginUsuario(email: String, senha: String){
+
+    private fun LoginUsuario(email: String, senha: String) {
         auth.signInWithEmailAndPassword(email, senha)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
                     binding.progressBar.isVisible = false
-
+                    Toast.makeText(
+                        requireContext(),
+                        FirebaseHelper.validarErros(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
 
-    private fun validarCampos(){
+    private fun validarCampos() {
 
         val email = binding.edtEmail.text.toString().trim()
         val senha = binding.edtSenha.text.toString().trim()
 
-        if (email.isNotEmpty() || senha.isNotEmpty()){
+        if (email.isNotEmpty() || senha.isNotEmpty()) {
 
             binding.progressBar.isVisible = true
 
@@ -67,9 +73,9 @@ class LoginFragment : Fragment() {
 
     }
 
-    private fun initClick(){
+    private fun initClick() {
 
-        binding.btLogin.setOnClickListener{ validarCampos() }
+        binding.btLogin.setOnClickListener { validarCampos() }
 
         binding.btCriarConta.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registroFragment)

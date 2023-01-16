@@ -10,4 +10,5 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_task_splash"
         android:layout_gravity="center"/>
+
 </FrameLayout>

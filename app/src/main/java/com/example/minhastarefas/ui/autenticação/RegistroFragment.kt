@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.minhastarefas.R
 import com.example.minhastarefas.databinding.FragmentLoginBinding
 import com.example.minhastarefas.databinding.FragmentRegistroBinding
+import com.example.minhastarefas.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -59,10 +60,13 @@ class RegistroFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_registroFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
                     binding.progressBar.isVisible = false
-
+                    Toast.makeText(
+                        requireContext(),
+                        FirebaseHelper.validarErros(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT).show()
                 }
             }
     }

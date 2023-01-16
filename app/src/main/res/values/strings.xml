@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Minhas Tarefas</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Erros Firebase Authentication-->
+    <string name="account_not_registered">Nenhuma conta encontrada com esse e-mail</string>
+    <string name="invalid_email_register">Insira um e-mail válido</string>
+    <string name="invalid_senha_register">Nenhuma conta encontrada com esse e-mail</string>
+    <string name="email_in_use">Este e-mail já está em uso</string>
+    <string name="senha6caracteres">A senha deve conte, no mínimo, 6 caracteres</string>
+    <string name="erro_generico">Ocorreu um erro, tente novamente mais tarde.</string>
+
+
 </resources>
