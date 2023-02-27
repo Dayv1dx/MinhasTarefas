@@ -2,7 +2,7 @@
     <string name="app_name">Minhas Tarefas</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--    Erros Firebase Authentication-->
+    <!--    Erros Firebase Authentication-->
     <string name="account_not_registered">Nenhuma conta encontrada com esse e-mail</string>
     <string name="invalid_email_register">Insira um e-mail válido</string>
     <string name="invalid_senha_register">Nenhuma conta encontrada com esse e-mail</string>
